@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "echo y | pscp -i D:/devops/tomcat-demo.ppk D:/devops/jenkins/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat8/webapps"
+                        bat "echo y | pscp -i D:/devops/tomcat-demo.ppk D:/devops/aws/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat8/webapps"
                     }
                 }
 		    
 		stage ("Deploy to Production"){
                     steps {
-                        bat "echo y | pscp -i D:/devops/tomcat-demo.ppk D:/devops/jenkins/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps"
+                        bat "echo y | pscp -i D:/devops/tomcat-demo.ppk D:/devops/aws/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps"
                     }
                 }
             }
